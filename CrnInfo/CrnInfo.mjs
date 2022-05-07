@@ -4,20 +4,52 @@ import V1NodeManagementAbi from './V1NodeManagementAbi.json' assert { type: 'jso
 import V2NodeManagementAbi from './V2NodeManagementAbi.json' assert { type: 'json' }
 import V1DistributionAbi from './V1DistributionAbi.json' assert { type: 'json' }
 import V2DistributionAbi from './V2DistributionAbi.json' assert { type: 'json' }
+import CoinTossAbi from './CoinTossAbi.json' assert { type: 'json' }
 
 export default {
 
 	token: {
 
 		address: '0x8174BaC1453c3AC7CaED909c20ceaDeb5E1CDA00',
-		abi: TokenAbi
+		abi: TokenAbi,
+
+		events: [
+
+			'Approval',
+			'ERC20PaymentReleased',
+			'LiquidityWalletUpdated',
+			'OwnershipTransferred',
+			'PayeeAdded',
+			'PaymentReceived',
+			'PaymentReleased',
+			'SetAutomatedMarketMakerPair',
+			'SwapAndLiquify',
+			'Transfer',
+			'UpdateCronaswapV2Router'
+
+		]
 
 	},
 
 	platformManagement: {
 
 		address: '0xFe688f455B018E531D30EF0B0584821193a14f07',
-		abi: PlatformManagementAbi
+		abi: PlatformManagementAbi,
+
+		events: [
+
+			'CRNTokenAddressUpdated',
+			'ClaimedAllNodes',
+			'ClaimedSingleNode',
+			'MaxNodesPerAccountUpdated',
+			'NodeManagementAddressUpdated',
+			'OwnershipTransferred',
+			'PaidAllNodes',
+			'PaidSingleNode',
+			'PaymentDaysCycleUpdated',
+			'TierConfigUpdated'
+
+		]
 
 	},
 
@@ -31,14 +63,38 @@ export default {
 	v2NodeManagement: {
 
 		address: '0x523CE472D66FC8001C2C78D6A1c7d88e93Ab1dDC',
-		abi: V2NodeManagementAbi
+		abi: V2NodeManagementAbi,
+
+		events: [
+
+			'DeletedAccount',
+			'ManagementAddressUpdated',
+			'NodeClaimed',
+			'NodeCreated',
+			'NodePaid',
+			'NodeRenewed',
+			'NodeUpdated',
+			'OwnershipTransferred'
+
+		]
 
 	},
 
 	v1Distribution: {
 
 		address: '0x6aD4Ff63fD7CF6672eE33Cdad8e3EE14Bad52B4E',
-		abi: V1DistributionAbi
+		abi: V1DistributionAbi,
+
+		events: [
+
+			'BlocksPerDayChanged',
+			'FeeChanged',
+			'FundsDeposited',
+			'MultiplierChanged',
+			'OwnershipTransferred',
+			'UserClaimedRewards'
+
+		]
 
 	},
 
@@ -46,6 +102,16 @@ export default {
 
 		address: '0xb0Dd5606A1201992E354Fc820101DB23113744Ef',
 		abi: V2DistributionAbi
+
+	},
+
+	/**
+	 * I only got parts of what I think may be the ABI, I'd advise you to not use this.
+	 */
+	coinToss: {
+
+		address: '0xC15D6AF0c782c16Ee8f5Bd9D70BE51D0CEe46ab4',
+		abi: CoinTossAbi
 
 	},
 
