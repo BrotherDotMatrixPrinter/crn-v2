@@ -4,12 +4,12 @@
 
     "index.ts",
 
-    "Class/ContractController.js",
+    "Class/ContractController.ts",
     "Class/Contracts.ts",
-    "NodeEntity.ts",
-    "TierConfig.ts",
+    "Class/NodeEntity.ts",
+    "Class/TierConfig.ts",
 
-    "CrnInfo/CrnInfo.ts",
+    "CrnInfo/CrnInfo.mjs",
     "CrnInfo/PlatformManagementAbi.json",
     "CrnInfo/TokenAbi.json",
     "CrnInfo/V1DistributionAbi.json",
@@ -32,8 +32,8 @@
 
     "target": "esnext",
     "experimentalDecorators": true,
-    "moduleDetection": "force",
-    "module": "NodeNext",
+    "moduleDetection": "force", // Ignore this error
+    "module": "NodeNext", // Ignore this error
     "moduleResolution": "nodenext",
     "resolveJsonModule": true,
 
