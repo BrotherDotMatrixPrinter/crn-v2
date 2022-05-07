@@ -4,6 +4,7 @@
 
     "index.ts",
 
+    "Class/ContractCommander.ts",
     "Class/ContractController.ts",
     "Class/Contracts.ts",
     "Class/NodeEntity.ts",
