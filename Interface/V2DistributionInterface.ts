@@ -1,5 +1,5 @@
 import { BigNumber, ContractFunction } from 'ethers'
-import ContractFunctionsInterface from './ContractFunctionsInterface'
+import ContractFunctionsInterface from './ContractFunctionsInterface.js'
 
 export default interface V2DistributionInterface extends ContractFunctionsInterface {
 

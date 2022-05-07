@@ -9,7 +9,7 @@
     "Class/NodeEntity.ts",
     "Class/TierConfig.ts",
 
-    "CrnInfo/CrnInfo.mjs",
+    "CrnInfo/CrnInfo.js",
     "CrnInfo/PlatformManagementAbi.json",
     "CrnInfo/TokenAbi.json",
     "CrnInfo/V1DistributionAbi.json",

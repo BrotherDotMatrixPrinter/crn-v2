@@ -1,6 +1,6 @@
 import { BigNumber, ContractFunction } from 'ethers'
-import ContractFunctionsInterface from './ContractFunctionsInterface'
-import NodeEntity from '../Class/NodeEntity'
+import ContractFunctionsInterface from './ContractFunctionsInterface.js'
+import NodeEntity from '../Class/NodeEntity.js'
 
 export default interface V2NodeManagementInterface extends ContractFunctionsInterface {
 

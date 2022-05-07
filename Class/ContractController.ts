@@ -1,5 +1,5 @@
 import { Contract, ContractInterface, providers as Providers, Signer } from 'ethers'
-import ContractFunctionsInterface from '../Interface/ContractFunctionsInterface'
+import ContractFunctionsInterface from '../Interface/ContractFunctionsInterface.js'
 
 export default abstract class ContractController< T extends ContractFunctionsInterface > {
 

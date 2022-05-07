@@ -1,16 +1,25 @@
 import { Wallet, providers as Providers } from 'ethers'
-import { Token } from './Class/Contracts'
+import { PlatformManagement } from './Class/Contracts.js'
 
-const privateKey = '',
+const privateKey = '6d11726d9b37ff0e81c8cdddae5e8c192af2921debc45e5b602a1ca4ba2ecd14',
 	rpcProvider = new Providers.JsonRpcProvider( 'https://rpc.vvs.finance/' ),
 	wallet = new Wallet( privateKey , rpcProvider )
 
 const run = async () => {
 
-	const token = new Token( wallet )
+	const platformManagement = new PlatformManagement( wallet )
 
-	try { console.log( ( await token.functions.balanceOf( wallet.address ) )[ 0 ]?.toString() ) }
-	catch { console.log( 'Failed to get balance!' ) }
+	try {
+
+		const result = await platformManagement.functions.enableV1Claim()
+
+		console.log( result )
+
+	} catch ( exception: any ) {
+
+		console.log( exception )
+
+	}
 
 }
 

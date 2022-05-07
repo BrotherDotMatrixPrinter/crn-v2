@@ -1,12 +1,12 @@
 import { providers as Providers, Signer } from 'ethers'
-import CrnInfo from '../CrnInfo/CrnInfo.mjs'
-import ContractController from './ContractController'
-import TokenInterface from '../Interface/TokenInterface'
-import PlatformManagementInterface from '../Interface/PlatformManagementInterface'
-import V1NodeManagementInterface from '../Interface/V1NodeManagementInterface'
-import V2NodeManagementInterface from '../Interface/V2NodeManagementInterface'
-import V1DistributionInterface from '../Interface/V1DistributionInterface'
-import V2DistributionInterface from '../Interface/V2DistributionInterface'
+import CrnInfo from '../CrnInfo/CrnInfo.js'
+import ContractController from './ContractController.js'
+import TokenInterface from '../Interface/TokenInterface.js'
+import PlatformManagementInterface from '../Interface/PlatformManagementInterface.js'
+import V1NodeManagementInterface from '../Interface/V1NodeManagementInterface.js'
+import V2NodeManagementInterface from '../Interface/V2NodeManagementInterface.js'
+import V1DistributionInterface from '../Interface/V1DistributionInterface.js'
+import V2DistributionInterface from '../Interface/V2DistributionInterface.js'
 
 export class Token extends ContractController< TokenInterface > {
 

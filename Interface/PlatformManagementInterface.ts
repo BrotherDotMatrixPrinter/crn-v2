@@ -1,6 +1,6 @@
 import { BigNumber, ContractFunction } from 'ethers'
-import ContractFunctionsInterface from './ContractFunctionsInterface'
-import TierConfig from '../Class/TierConfig'
+import ContractFunctionsInterface from './ContractFunctionsInterface.js'
+import TierConfig from '../Class/TierConfig.js'
 
 export default interface PlatformManagementInterface extends ContractFunctionsInterface {
 
