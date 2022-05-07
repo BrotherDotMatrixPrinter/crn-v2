@@ -1,0 +1,77 @@
+{
+
+  "files": [
+
+    "index.ts",
+
+    "Class/ContractController.js",
+    "Class/Contracts.ts",
+    "NodeEntity.ts",
+    "TierConfig.ts",
+
+    "CrnInfo/CrnInfo.ts",
+    "CrnInfo/PlatformManagementAbi.json",
+    "CrnInfo/TokenAbi.json",
+    "CrnInfo/V1DistributionAbi.json",
+    "CrnInfo/V2DistributionAbi.json",
+    "CrnInfo/V1NodeManagementAbi.json",
+    "CrnInfo/V2NodeManagementAbi.json",
+    "CrnInfo/CoinTossAbi.json",
+
+    "Interface/ContractFunctionsInterface.ts",
+    "Interface/PlatformManagementInterface.ts",
+    "Interface/TokenInterface.ts",
+    "Interface/V1DistributionInterface.ts",
+    "Interface/V2DistributionInterface.ts",
+    "Interface/V1NodeManagementInterface.ts",
+    "Interface/V2NodeManagementInterface.ts"
+
+  ],
+
+  "compilerOptions": {
+
+    "target": "esnext",
+    "experimentalDecorators": true,
+    "moduleDetection": "force",
+    "module": "nodenext", // Ignore this error
+    "moduleResolution": "nodenext",
+    "resolveJsonModule": true,
+
+    "typeRoots": [
+
+      "./Class",
+      "./Interface"
+
+    ],
+
+    "allowJs": true,
+    "checkJs": false,
+    "outDir": "build",
+    "removeComments": true,
+    "importsNotUsedAsValues": "remove",
+    "stripInternal": true,
+    "noEmitOnError": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "skipLibCheck": true
+
+  }
+
+}

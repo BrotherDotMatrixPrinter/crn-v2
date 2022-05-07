@@ -1,3 +1,4 @@
+// I don't want to deal with importing JSON with TS modules, the assertions are bad enough
 import TokenAbi from './TokenAbi.json' assert { type: 'json' }
 import PlatformManagementAbi from './PlatformManagementAbi.json' assert { type: 'json' }
 import V1NodeManagementAbi from './V1NodeManagementAbi.json' assert { type: 'json' }
