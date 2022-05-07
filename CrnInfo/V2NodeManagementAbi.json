@@ -1,0 +1,1029 @@
+[
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "DeletedAccount",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "newManagementAddress",
+				"type": "address"
+			}
+		],
+		"name": "ManagementAddressUpdated",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "nodeIndex",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "nodeName",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "lastClaimTime",
+				"type": "uint256"
+			}
+		],
+		"name": "NodeClaimed",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "nodeName",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "nodeTier",
+				"type": "uint256"
+			}
+		],
+		"name": "NodeCreated",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "nodeIndex",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "nodeName",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "nextPaymentDueOn",
+				"type": "uint256"
+			}
+		],
+		"name": "NodePaid",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "nodeIndex",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "nodeName",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "nextPaymentDueOn",
+				"type": "uint256"
+			}
+		],
+		"name": "NodeRenewed",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "nodeIndex",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "nodeName",
+				"type": "string"
+			}
+		],
+		"name": "NodeUpdated",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"internalType": "bool",
+				"name": "value",
+				"type": "bool"
+			}
+		],
+		"name": "blacklistMalicious",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "nodeIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "burnNode",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "checkBlacklist",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "isBlacklisted",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "claimAllNodes",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "nodeIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "claimNode",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "nodeName",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "nodeTier",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "hasMonthlyFee",
+				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "paymentDueDays",
+				"type": "uint256"
+			}
+		],
+		"name": "createNode",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "deleteAccount",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "getAccountTier2Credit",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "totalNodes",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "getAccountTotalNodes",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "totalNodes",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "getAllNodes",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "nodeTier",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "creationTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastClaimTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastPaidTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "paymentDueTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "hasMonthlyFee",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "extendedParam1",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "extendedParam2",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct CRNNodesManagement.NodeEntity[]",
+				"name": "_nodes",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getCreatedStats",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "totalNodes",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalTierOneNodes",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalTierTwoNodes",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalTierThreeNodes",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalTierFourNodes",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalTierFiveNodes",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "getNodeTransfer",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "nodeIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "getSingleNode",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "nodeTier",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "creationTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastClaimTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastPaidTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "paymentDueTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "hasMonthlyFee",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "extendedParam1",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "extendedParam2",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct CRNNodesManagement.NodeEntity",
+				"name": "node",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "hasNodeTransferred",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "isActive",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "managementAddress",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "nodesOfAccount",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "nodeTier",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "creationTime",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "lastClaimTime",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "lastPaidTime",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "paymentDueTime",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "hasMonthlyFee",
+				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "extendedParam1",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "extendedParam2",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "numberPaidDays",
+				"type": "uint256"
+			}
+		],
+		"name": "payAllNodes",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "nodeIndex",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "numberPaidDays",
+				"type": "uint256"
+			}
+		],
+		"name": "payNode",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "_success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "nodeIndex",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "numberPaidDays",
+				"type": "uint256"
+			}
+		],
+		"name": "renewNode",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "_success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bool",
+				"name": "newIsActive",
+				"type": "bool"
+			}
+		],
+		"name": "setActive",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newManagementAddress",
+				"type": "address"
+			}
+		],
+		"name": "setManagementAddress",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			}
+		],
+		"name": "setNodeTransfer",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "credit",
+				"type": "uint256"
+			}
+		],
+		"name": "setTier2Credit",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalNodesCreated",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalTierFiveNodesCreated",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalTierFourNodesCreated",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalTierOneNodesCreated",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalTierThreeNodesCreated",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalTierTwoNodesCreated",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "nodeIndex",
+				"type": "uint256"
+			},
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "nodeTier",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "creationTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastClaimTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastPaidTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "paymentDueTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "hasMonthlyFee",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "extendedParam1",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "extendedParam2",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct CRNNodesManagement.NodeEntity",
+				"name": "node",
+				"type": "tuple"
+			}
+		],
+		"name": "updateNode",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
