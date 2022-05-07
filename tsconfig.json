@@ -33,7 +33,7 @@
     "target": "esnext",
     "experimentalDecorators": true,
     "moduleDetection": "force",
-    "module": "nodenext", // Ignore this error
+    "module": "NodeNext",
     "moduleResolution": "nodenext",
     "resolveJsonModule": true,
 
