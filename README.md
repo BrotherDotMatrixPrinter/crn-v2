@@ -2,7 +2,7 @@ You don't really need any of the code, you can make your own implementation with
 
 ---
 
-This contains four different implementations that pretty much do the same thing but use different module resolutions:
+This contains four different implementations:
 - index.ts:
 	- Outputs to build folder.
 	- Uses TypeScript and ES Modules.
