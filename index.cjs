@@ -1,10 +1,10 @@
-import { Contract, Wallet, providers as Providers } from 'ethers'
-import CrnInfo from './CrnInfo/CrnInfo.mjs'
+const { Contract, Wallet, providers } = require( 'ethers' ),
+	CrnInfo = require( './CrnInfo/CrnInfo.cjs' )
 
 // This allows us to import types without TypeScript
 /** @typedef { import( 'ethers' ).BigNumber } BigNumber */
 
-const provider = new Providers.JsonRpcProvider( 'https://evm-cronos.crypto.org/' ),
+const provider = new providers.JsonRpcProvider( 'https://evm-cronos.crypto.org/' ),
 	wallet = new Wallet( '6d11726d9b37ff0e81c8cdddae5e8c192af2921debc45e5b602a1ca4ba2ecd14', provider ),
 	tokenContract = new Contract( CrnInfo.token.address, CrnInfo.token.abi, wallet )
 

@@ -1,5 +1,5 @@
 import { providers as Providers, Signer } from 'ethers'
-import CrnInfo from '../CrnInfo/CrnInfo.js'
+import CrnInfo from '../CrnInfo/CrnInfo.mjs'
 import ContractController from './ContractController.js'
 import TokenInterface from '../Interface/TokenInterface.js'
 import PlatformManagementInterface from '../Interface/PlatformManagementInterface.js'
