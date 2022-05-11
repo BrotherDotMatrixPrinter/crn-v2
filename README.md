@@ -5,14 +5,14 @@ You don't really need any of the code, you can make your own implementation with
 This contains three different implementations that pretty much do the same thing but use different module resolutions:
 - index.ts:
 	- Outputs to build folder.
-	- Uses TypeScript and JS Modules.
+	- Uses TypeScript and ES Modules.
 - index.mjs:
 	- Does not need to be built.
-	- Uses vanilla JS and JS Modules.
+	- Uses vanilla JS and ES Modules.
 - index.cjs:
 	- Does not need to be built.
 	- Uses vanilla JS and Common JS.
-- index.py
+- index.py:
 	- This is just an example of how you could use Python.
 
 ABIs and more info are the CrnInfo folder and CrnInfo/CrnInfo.(mjs/cjs) files.
@@ -29,10 +29,15 @@ I'm not the best with Solidity but it should give some more insights as to how t
 		- npm i
 		- npm run build
 		- npm run start
-	- JS Modules/Common JS:
+	- ES Modules/Common JS:
 		- Use one of these to install:
 			- npm i (installs TypeScript and ethers)
 			- npm i ethers (installs ethers but not TypeScript)
 		- node index.(mjs/cjs)
+	- Python:
+		- Use one of these to install:
+			- virtual environment + web3py with something like venv and pip
+			- install web3py globally with pip
+		- python index.py
 
 A default private key is provided for testing, do not put any funds in the wallet lol.
