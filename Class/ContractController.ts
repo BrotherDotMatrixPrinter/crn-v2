@@ -3,21 +3,10 @@ import ContractFunctionsInterface from '../Interface/ContractFunctionsInterface.
 
 export default abstract class ContractController< T extends ContractFunctionsInterface > {
 
-	private _ethersContract: Contract
-	private _address: string
+	readonly ethersContract: Contract
+	readonly address: string
+
 	private _isSigned: boolean
-
-	get ethersContract() {
-
-		return this._ethersContract as Readonly< Contract >
-
-	}
-
-	get address() {
-
-		return this._address as Readonly< string >
-
-	}
 
 	get isSigned() {
 
@@ -27,21 +16,21 @@ export default abstract class ContractController< T extends ContractFunctionsInt
 
 	get functions() {
 
-		return this._ethersContract.functions as unknown as Readonly< T >
+		return this.ethersContract.functions as unknown as Readonly< T >
 
 	}
 
 	protected constructor( addressOrName: string, contractInterface: ContractInterface, signerOrProvider?: Providers.Provider | Signer ) {
 
-		this._address = addressOrName
-		this._ethersContract = new Contract( addressOrName, contractInterface, signerOrProvider )
+		this.address = addressOrName
+		this.ethersContract = new Contract( addressOrName, contractInterface, signerOrProvider )
 		this._isSigned = signerOrProvider instanceof Signer
 
 	}
 
 	sign( signer: Signer ) {
 
-		this._ethersContract.connect( signer )
+		this.ethersContract.connect( signer )
 		this._isSigned = true
 
 	}

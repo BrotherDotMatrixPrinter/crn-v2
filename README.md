@@ -12,6 +12,8 @@ This contains three different implementations that pretty much do the same thing
 - index.cjs:
 	- Does not need to be built.
 	- Uses vanilla JS and Common JS.
+- index.py
+	- This is just an example of how you could use Python.
 
 ABIs and more info are the CrnInfo folder and CrnInfo/CrnInfo.(mjs/cjs) files.
 
