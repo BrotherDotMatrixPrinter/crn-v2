@@ -1,0 +1,16 @@
+{
+  "name": "crn-v2-esm",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ethers": "latest"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "crn-v2-browser",
+  "type": "commonjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.cjs",
+  "scripts": {
+    "build": "browserify index.cjs -o build/bundle.js",
+    "start": "node build/bundle.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "latest",
+    "ethers": "latest"
+  }
+}
