@@ -4,14 +4,18 @@
   "version": "2.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "babel src --out-dir lib && browserify lib/index.js -o lib/bundle.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "ethers": "latest"
-  },
   "devDependencies": {
-    "browserify": "latest"
+    "@babel/cli": "latest",
+    "@babel/core": "latest",
+    "@babel/plugin-syntax-import-assertions": "latest",
+    "@babel/preset-env": "latest",
+    "browserify": "latest",
+    "ethers": "latest"
   }
 }
