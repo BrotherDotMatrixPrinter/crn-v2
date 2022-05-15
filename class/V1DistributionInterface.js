@@ -1,4 +1,4 @@
-import ContractFunctionsInterface from './ContractFunctionsInterface'
+import ContractFunctionsInterface from './ContractFunctionsInterface.js'
 
 /** @typedef { import( 'ethers' ).BigNumber } BigNumber */
 /** @typedef { import( 'ethers' ).ContractFunction } ContractFunction */

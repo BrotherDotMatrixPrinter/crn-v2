@@ -1,6 +1,7 @@
 import { Wallet } from 'ethers'
 import { JsonRpcProvider } from '@ethersproject/providers'
-import { Token, PlatformManagement, V1NodeManagement, V2NodeManagement, V1Distribution, V2Distribution } from './Contracts.js'
+import Token from './Token.js'
+import { PlatformManagement, V1NodeManagement, V2NodeManagement, V1Distribution, V2Distribution } from './Contracts.js'
 
 /** @typedef { import( 'ethers' ).BigNumber } BigNumber */
 /** @typedef { import( 'ethers' ).BytesLike } BytesLike */
@@ -84,7 +85,7 @@ export class ContractCommander {
 		token = new Token( wallet ),
 		platformManagement = new PlatformManagement( wallet ),
 		v1NodeManagement = new V1NodeManagement( wallet ),
-		v2NodeManagement = new ( wallet ),
+		v2NodeManagement = new Wallet( wallet ),
 		v1Distribution = new V1Distribution( wallet ),
 		v2Distribution = new V2Distribution( wallet )
 
@@ -107,28 +108,9 @@ export class ContractCommander {
 	 * @param { boolean? } debug
 	 * @returns { Promise< string > }
 	 */
-	async balance( address = this.Wallet.address, debug = false ) {
+	balance( address = this.Wallet.address, debug = false ) {
 
-		try {
-
-			/**
-			 * @type { BigNumber[] }
-			 */
-			let result = await this.#Token.functions.balanceOf( address )
-
-			if ( result.length === 0 )
-				throw new Error( 'no results from request' )
-
-			return result[ 0 ].toString()
-
-		} catch ( exception ) {
-
-			console.warn( `${ this.#TAG }.balance: error occurred` )
-			if ( debug ) console.warn( exception )
-
-			return '0'
-
-		}
+		return this.#Token.balance( address, debug )
 
 	}
 
@@ -141,26 +123,7 @@ export class ContractCommander {
 	 */
 	async transferTo( address, amount, debug = false ) {
 
-		try {
-
-			/**
-			 * @type { boolean[] }
-			 */
-			let result = await this.#Token.functions.transfer( address, BigNumber.from( amount ) )
-
-			if ( result.length === 0 )
-				throw new Error( 'no results from request' )
-
-			return result[ 0 ]
-
-		} catch ( exception ) {
-
-			console.warn( `${ this.TAG }.transferTo: error occurred` )
-			if ( debug ) console.warn( exception )
-
-			return false
-
-		}
+		return this.#Token.transferTo( address, amount, debug )
 
 	}
 

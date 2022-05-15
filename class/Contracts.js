@@ -1,34 +1,13 @@
-import CrnInfo from './CrnInfo'
-import ContractController from './ContractController'
+import CrnInfo from './CrnInfo.js'
+import ContractController from './ContractController.js'
 
 /** @typedef { import( 'ethers' ).providers.Provider } Provider */
 /** @typedef { import( 'ethers' ).Signer } Signer */
-/** @typedef { import( './TokenInterface' ).default } TokenInterface */
 /** @typedef { import( './PlatformManagementInterface' ).default } PlatformManagementInterface */
 /** @typedef { import( './V1DistributionInterface' ).default } V1DistributionInterface */
 /** @typedef { import( './V1NodeManagementInterface' ).default } V1NodeManagementInterface */
 /** @typedef { import( './V2DistributionInterface' ).default } V2DistributionInterface */
 /** @typedef { import( './V2NodeManagementInterface' ).default } V2NodeManagementInterface */
-
-// This is where the magic happens.
-
-/**
- * For use as a constructor for the Token contract.
- * Use with TokenAbi and TokenInterface.
- * @extends { ContractController< TokenInterface > }
- */
-export class Token extends ContractController {
-
-	/**
-	 * @param { ( Provider | Signer )? } signerOrProvider
-	 */
-	constructor( signerOrProvider = null ) {
-
-		super( CrnInfo.token.address, CrnInfo.token.abi, signerOrProvider )
-
-	}
-
-}
 
 /**
  * For use as a constructor for the Platform Management contract.

@@ -1,4 +1,4 @@
-import { ContractCommander } from './class/ContractCommander'
+import { ContractCommander } from './class/ContractCommander.js'
 
 const contractCommander = new ContractCommander()
 
