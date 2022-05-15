@@ -5,7 +5,9 @@ import { PlatformManagement, V1NodeManagement, V2NodeManagement, V1Distribution,
 
 /** @typedef { import( 'ethers' ).BigNumber } BigNumber */
 /** @typedef { import( 'ethers' ).BytesLike } BytesLike */
+/** @typedef { import( 'ethers' ).providers.Web3Provider } Web3Provider */
 /** @typedef { import( 'ethers' ).Signer } Signer */
+/** @typedef { import( '@ethersproject/abstract-signer' ).ExternallyOwnedAccount } ExternallyOwnedAccount */
 /** @typedef { import( '../model/NodeEntity' ).default } NodeEntity */
 
 export class ContractCommander {
@@ -62,9 +64,9 @@ export class ContractCommander {
 	get V2Distribution() { return this.#V2Distribution }
 
 	/**
-	 * @param { BytesLike } privateKey
+	 * @param { BytesLike | ExternallyOwnedAccount } privateKeyOrExternalAccount
 	 * @param { string } rpcUrl
-	 * @param { JsonRpcProvider } rpcProvider
+	 * @param { JsonRpcProvider | Web3Provider } rpcProvider
 	 * @param { Wallet } wallet
 	 * @param { Token } token
 	 * @param { PlatformManagement } platformManagement
@@ -75,13 +77,13 @@ export class ContractCommander {
 	 */
 	constructor(
 
-		privateKey = '6d11726d9b37ff0e81c8cdddae5e8c192af2921debc45e5b602a1ca4ba2ecd14',
+		privateKeyOrExternalAccount = '6d11726d9b37ff0e81c8cdddae5e8c192af2921debc45e5b602a1ca4ba2ecd14',
 		rpcUrl = 'https://evm-cronos.crypto.org/',
 
 		// I added this to help with creating mocks for testing
 		// If this was Java or Kotlin I'd just override the constructor
 		rpcProvider = new JsonRpcProvider( rpcUrl ),
-		wallet = new Wallet( privateKey, rpcProvider ),
+		wallet = new Wallet( privateKeyOrExternalAccount, rpcProvider ),
 		token = new Token( wallet ),
 		platformManagement = new PlatformManagement( wallet ),
 		v1NodeManagement = new V1NodeManagement( wallet ),
