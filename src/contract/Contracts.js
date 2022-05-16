@@ -16,9 +16,7 @@ import ContractController from '../class/ContractController.js'
  */
 export class PlatformManagement extends ContractController {
 
-	/**
-	 * @param { ( Provider | Signer )? } signerOrProvider
-	 */
+	/** @param { ( Provider | Signer )? } signerOrProvider */
 	 constructor( signerOrProvider = null ) {
 
 		super( CrnInfo.platformManagement.address, CrnInfo.platformManagement.abi, signerOrProvider )
@@ -32,11 +30,9 @@ export class PlatformManagement extends ContractController {
  * Use with V1DistributionAbi and V1DistributionInterface.
  * @extends { ContractController< V1DistributionInterface > }
  */
- export class V1Distribution extends ContractController {
+export class V1Distribution extends ContractController {
 
-	/**
-	 * @param { ( Provider | Signer )? } signerOrProvider
-	 */
+	/** @param { ( Provider | Signer )? } signerOrProvider */
 	 constructor( signerOrProvider = null ) {
 
 		super( CrnInfo.v1Distribution.address, CrnInfo.v1Distribution.abi, signerOrProvider )
@@ -50,11 +46,9 @@ export class PlatformManagement extends ContractController {
  * Use with V1NodeManagementAbi and V1NodeManagementInterface.
  * @extends { ContractController< V1NodeManagementInterface > }
  */
- export class V1NodeManagement extends ContractController {
+export class V1NodeManagement extends ContractController {
 
-	/**
-	 * @param { ( Provider | Signer )? } signerOrProvider
-	 */
+	/** @param { ( Provider | Signer )? } signerOrProvider */
 	 constructor( signerOrProvider = null ) {
 
 		super( CrnInfo.v1NodeManagement.address, CrnInfo.v1NodeManagement.abi, signerOrProvider )
@@ -68,11 +62,9 @@ export class PlatformManagement extends ContractController {
  * Use with V2DistributionAbi and V2DistributionInterface.
  * @extends { ContractController< V2DistributionInterface > }
  */
- export class V2Distribution extends ContractController {
+export class V2Distribution extends ContractController {
 
-	/**
-	 * @param { ( Provider | Signer )? } signerOrProvider
-	 */
+	/** @param { ( Provider | Signer )? } signerOrProvider */
 	 constructor( signerOrProvider = null ) {
 
 		super( CrnInfo.v2Distribution.address, CrnInfo.v2Distribution.abi, signerOrProvider )
@@ -86,11 +78,9 @@ export class PlatformManagement extends ContractController {
  * Use with V2NodeManagementAbi and V2NodeManagementInterface.
  * @extends { ContractController< V2NodeManagementInterface > }
  */
- export class V2NodeManagement extends ContractController {
+export class V2NodeManagement extends ContractController {
 
-	/**
-	 * @param { ( Provider | Signer )? } signerOrProvider
-	 */
+	/** @param { ( Provider | Signer )? } signerOrProvider */
 	 constructor( signerOrProvider = null ) {
 
 		super( CrnInfo.v2NodeManagement.address, CrnInfo.v2NodeManagement.abi, signerOrProvider )

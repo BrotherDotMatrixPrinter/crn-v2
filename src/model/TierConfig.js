@@ -2,9 +2,7 @@
 
 export default class TierConfig {
 
-	/**
-	 * @type { [ string, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber ] }
-	 */
+	/** @type { [ string, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber ] } */
 	components
 
 	/**

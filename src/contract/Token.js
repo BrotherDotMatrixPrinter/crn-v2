@@ -11,11 +11,9 @@ import ContractController from '../class/ContractController.js'
  * Use with TokenAbi and TokenInterface.
  * @extends { ContractController< TokenInterface > }
  */
- export default class Token extends ContractController {
+export default class Token extends ContractController {
 
-	/**
-	 * @param { ( Provider | Signer )? } signerOrProvider
-	 */
+	/** @param { ( Provider | Signer )? } signerOrProvider */
 	constructor( signerOrProvider = null ) {
 
 		super( CrnInfo.token.address, CrnInfo.token.abi, signerOrProvider )
@@ -24,22 +22,21 @@ import ContractController from '../class/ContractController.js'
 
 	/**
 	 * Get the balance of the address.
-	 * @param { string } address
+	 * @param { string? } address
 	 * @param { boolean? } debug
 	 * @returns { Promise< string > }
 	 */
-	async balance( address, debug = false ) {
+	async balance( address = null, debug = false ) {
 
-		/**
-		 * @type { TokenInterface }
-		 */
+		if ( ! address )
+			address = await this.ethersContract.signer.getAddress()
+
+		/** @type { TokenInterface } */
 		const functions = this.ethersContract.functions
 
 		try {
 
-			/**
-			 * @type { BigNumber[] }
-			 */
+			/** @type { BigNumber[] } */
 			const result = await functions.balanceOf( address )
 
 			if ( result.length === 0 )
@@ -67,16 +64,12 @@ import ContractController from '../class/ContractController.js'
 	 */
 	async transferTo( address, amount, debug = false ) {
 
-		/**
-		 * @type { TokenInterface }
-		 */
+		/** @type { TokenInterface } */
 		const functions = this.ethersContract.functions
 
 		try {
 
-			/**
-			 * @type { boolean[] }
-			 */
+			/** @type { boolean[] } */
 			const result = await functions.transfer( address, BigNumber.from( amount ) )
 
 			if ( result.length === 0 )

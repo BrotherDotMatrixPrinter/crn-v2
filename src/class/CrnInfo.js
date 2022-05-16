@@ -6,9 +6,7 @@ import V1DistributionAbi from '../abi/V1DistributionAbi.json' assert { type: 'js
 import V2DistributionAbi from '../abi/V2DistributionAbi.json' assert { type: 'json' }
 import CoinTossAbi from '../abi/CoinTossAbi.json' assert { type: 'json' }
 
-/**
- * Provides relevant properties and methods regarding the contracts and the platform.
- */
+/** Provides relevant properties and methods regarding the contracts and the platform. */
 export default class CrnInfo {
 
 	static token = {
@@ -108,9 +106,7 @@ export default class CrnInfo {
 
 	}
 
-	/**
-	 * I only got parts of what I think may be the ABI, I'd advise you to not use this.
-	 */
+	/** I only got parts of what I think may be the ABI, I'd advise you to not use this. */
 	static coinToss = {
 
 		address: '0xC15D6AF0c782c16Ee8f5Bd9D70BE51D0CEe46ab4',
@@ -119,6 +115,9 @@ export default class CrnInfo {
 	}
 
 	static futureUsePool = '0x3e815fa1Bda78eB627aE35b0dAd9fC47377af3AE'
+	static goldBoostNft = '0xC0D6459d5002A57534e631E204aE6CC87Bed261d'
+	static silverBoostNft = '0xC0D6459d5002A57534e631E204aE6CC87Bed261d'
+	static bronzeBoostNft = '0x21F7C4E6E23b4Fa4a2ca7edE88A55C765e40931e'
 
 	static tier = {
 
@@ -154,9 +153,7 @@ export default class CrnInfo {
 
 		},
 
-		/**
-		 * This is just a shitty guess, ABIs mention five tiers.
-		 */
+		/** This is just a shitty guess, ABIs mention five tiers. */
 		five: {
 
 			crnCostPerNode: 145.00,

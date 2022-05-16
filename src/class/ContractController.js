@@ -11,28 +11,11 @@ import { Contract, Signer } from 'ethers'
  */
 export default class ContractController {
 
-	/**
-	 * @type { Contract }
-	 */
-	#ethersContract
+	/** @type { Contract } */ ethersContract
+	/** @type { string } */ address
+	/** @type { boolean } */ isSigned
 
-	/**
-	 * @type { string }
-	 */
-	#address
-
-	/**
-	 * @type { boolean }
-	 */
-	#isSigned
-
-	get ethersContract() { return this.#ethersContract }
-	get address() { return this.#address }
-	get isSigned() { return this.#isSigned }
-
-	/**
-	 * @type { T & [ name: string ]: ContractFunction< any > }
-	 */
+	/** @type { T & [ name: string ]: ContractFunction< any > } */
 	 get functions() { return this.ethersContract.functions }
 
 	/**
@@ -42,19 +25,17 @@ export default class ContractController {
 	 */
 	constructor( addressOrName, contractInterface, signerOrProvider ) {
 
-		this.#ethersContract = new Contract( addressOrName, contractInterface, signerOrProvider )
-		this.#address = addressOrName
-		this.#isSigned = signerOrProvider instanceof Signer
+		this.ethersContract = new Contract( addressOrName, contractInterface, signerOrProvider )
+		this.address = addressOrName
+		this.isSigned = signerOrProvider instanceof Signer
 
 	}
 
-	/**
-	 * @param { Signer } signer
-	 */
+	/** @param { Signer } signer */
 	sign( signer ) {
 
-		this.#ethersContract.connect( signer )
-		this.#isSigned = true
+		this.ethersContract.connect( signer )
+		this.isSigned = true
 
 	}
 

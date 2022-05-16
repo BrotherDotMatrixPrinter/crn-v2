@@ -2,9 +2,7 @@
 
 export default class NodeEntity {
 
-	/**
-	 * @type { [ string, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, boolean, BigNumber, BigNumber ] }
-	 */
+	/** @type { [ string, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, boolean, BigNumber, BigNumber ] } */
 	components
 
 	/**

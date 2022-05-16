@@ -12,4 +12,7 @@ Setup for running in a browser:
 	- babel outputs to 'lib'
 	- browserify outputs to 'lib/bundle.js'
 
+---
+
 If you just want to run it in the console, you can remove all the dev dependencies except for ethers and run 'index.js' with node.
+Otherwise, you'll need to import 'bundle.js' in an HTML file and open it in a browser.
